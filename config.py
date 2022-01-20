@@ -1,5 +1,5 @@
 TOKEN = None
 
 
-with open("../Car_dealerbot/token.txt") as f:
+with open("../Tbot_cardealer/token.txt") as f:
     TOKEN = f.read().strip()
