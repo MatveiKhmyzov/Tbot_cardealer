@@ -1,4 +1,4 @@
-from aiogram.utils import executor
+from aiogram.utils import executor # для запуска бота в режиме long_polling (постоянный опрос сервера)
 from create_bot import dp
 from handlers import client, admin, other
 from data_base import pgsql_db
