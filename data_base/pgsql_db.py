@@ -26,3 +26,14 @@ async def pga_read(message):
     cars_records = cur.fetchall()
     for ret in cars_records:
         await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
+
+
+async def pga_read2():
+    cur.execute('SELECT * FROM cars')
+    cars_data = cur.fetchall()
+    return cars_data
+
+
+async def pga_delete_command(data):
+    cur.execute('DELETE FROM cars WHERE name = %s', (data,))
+    base.commit()

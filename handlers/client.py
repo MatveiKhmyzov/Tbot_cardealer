@@ -18,7 +18,7 @@ async def dealer_open_command(message: types.Message):
 
 
 async def dealer_destination_command(message: types.Message):
-    await bot.send_message(message.from_user.id, 'ул. Сухаревское шоссе 24', reply_markup=ReplyKeyboardRemove())
+    await bot.send_message(message.from_user.id, 'ул. Сухаревское шоссе 24') # , reply_markup=ReplyKeyboardRemove())
 
 
 async def cars_pricelist_command(message: types.Message):
@@ -26,7 +26,7 @@ async def cars_pricelist_command(message: types.Message):
 
 
 def register_handlers_client(dp: Dispatcher):
-    dp.register_message_handler(command_start, commands=['start', 'help'])
-    dp.register_message_handler(dealer_open_command, commands=['Режим_работы'])
-    dp.register_message_handler(dealer_destination_command, commands=['Адрес'])
-    dp.register_message_handler(cars_pricelist_command, commands=['Прайслист'])
+    dp.register_message_handler(command_start, lambda message: 'Запуск бота' in message.text) #commands=['start', 'help'])
+    dp.register_message_handler(dealer_open_command, lambda message: 'Режим работы' in message.text) #commands=['Режим_работы'])
+    dp.register_message_handler(dealer_destination_command, lambda message: 'Адрес' in message.text) # commands=['Адрес'])
+    dp.register_message_handler(cars_pricelist_command, lambda message: 'Прайслист' in message.text) #commands=['Прайслист'])
